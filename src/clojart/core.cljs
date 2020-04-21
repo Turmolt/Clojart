@@ -1,5 +1,5 @@
 (ns clojart.core
-  (:require [clojart.art.circles :as art]
+  (:require [clojart.art.golden-ratio :as art]
             [quil.core :as q]
             [quil.middleware :as m]
             [clojart.canvas :refer [w h]]))
