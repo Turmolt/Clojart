@@ -1,5 +1,5 @@
 (ns clojart.core
-  (:require [clojart.flow :as art]
+  (:require [clojart.art.circles :as art]
             [quil.core :as q]
             [quil.middleware :as m]
             [clojart.canvas :refer [w h]]))

@@ -1,4 +1,4 @@
-(ns clojart.flow
+(ns clojart.art.flow
   (:require [quil.core :as q]
             [quil.middleware :as m]
             [clojart.canvas :refer [w h]]
@@ -35,14 +35,14 @@
   "Returns inital state of page for update-render loop"
   []
   (apply q/background (:background palette))
-  (map particle (range 0 4000)))
+  (map particle (range 0 100)))
 
 (defn sketch-update
   "slowly move the river noise" 
   [particles]
   (map #(assoc %
-               :x         (step-value (:x %)  (:vx %) w mod)
-               :y         (step-value (:y %)  (:vy %) h mod)
+               :x         (step-value (:x %)  (+ w (:vx %)) w mod)
+               :y         (step-value (:y %)  (+ h (:vy %)) h mod)
                :direction (noise/direction (:x %) (:y %))
                :vx        (step-value (:vx %) (Math/cos (:direction %)) 2 /)
                :vy        (step-value (:vy %) (Math/sin (:direction %)) 2 /))
