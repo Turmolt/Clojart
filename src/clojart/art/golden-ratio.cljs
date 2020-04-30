@@ -52,7 +52,7 @@
   "update the state each frame"
   [state]
   (map #(assoc %
-               :delta (+ .01 (:time %)))
+               :delta (+ .01 (- (:id %)  (:time %))))
        state))
 
 (defn sketch
